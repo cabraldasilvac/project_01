@@ -1,9 +1,12 @@
+import React from 'react';
+import AppRoutes from './AppRoutes';
+
 
 function App() {
   return (
-    <div className="App">
-Hello Word!
-    </div>
+    <>
+      <AppRoutes/>
+    </>
   );
 }
 
