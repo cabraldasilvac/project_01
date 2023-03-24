@@ -1,9 +1,12 @@
+import Header from "../../components/Header";
+
 const PeoplePage = () => {
   return (
-    <div>
-      Here on people's page will have information about our application
-    </div>
-  )
-}
+    <>
+      <Header />
+      <div>This page will visualize and register all kinds of People</div>
+    </>
+  );
+};
 
 export default PeoplePage;
