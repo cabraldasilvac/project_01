@@ -1,4 +1,4 @@
-import { Header_app } from "../../styles/header";
+import { HeaderApp } from "../../styles/header";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -6,7 +6,7 @@ const Header = () => {
 
   return (
     <div>
-      <Header_app>
+      <HeaderApp>
         <button
           onClick={() => {
             navigate("/");
@@ -21,7 +21,7 @@ const Header = () => {
         >
           People
         </button>
-      </Header_app>
+      </HeaderApp>
     </div>
   );
 };
