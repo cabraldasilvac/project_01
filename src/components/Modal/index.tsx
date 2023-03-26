@@ -7,7 +7,7 @@ interface iModal {
 const Modal = ({ children }: iModal) => {
   return (
     <DivBackgroundModal>
-      <div className="div_background_modal">{children}</div>
+      <div className="div_modal_info">{children}</div>
     </DivBackgroundModal>
   );
 };
