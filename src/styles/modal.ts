@@ -10,8 +10,8 @@ export const DivBackgroundModal = styled.div`
   align-items: center;
 
   .div_modal_info {
-    width: 25vw;
-    height: 35vh;
+    width: 50vw;
+
     background-color: white;
     border-radius: 8px;
     box-shadow: 1pt 1pt 5pt black;

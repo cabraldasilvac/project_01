@@ -2,7 +2,22 @@ import React, { createContext, useState, useEffect } from "react";
 
 interface iRegisterPeople {
   id: number;
-  name: string;
+  cpfCnpj: string;
+  nomeRazao: string;
+  apelidoFantasia: string;
+  tipo: string;
+  insEstatual: string;
+  insMunicipal: string;
+  cep: string;
+  rua: string;
+  numero: string;
+  complemento: string;
+  bairro: string;
+  cidade: string;
+  telefone: string;
+  celular: string;
+  email: string;
+  site: string;
 }
 
 interface iPeopleProviderFunctions {
@@ -43,7 +58,22 @@ export const PeopleProvider = ({ children }: iPeopleProviderProps) => {
   const register_people = (data: iRegisterPeople) => {
     const new_person = {
       id: createKey(),
-      name: data.name,
+      cpfCnpj: data.cpfCnpj,
+      nomeRazao: data.nomeRazao,
+      apelidoFantasia: data.apelidoFantasia,
+      tipo: data.tipo,
+      insEstatual: data.insEstatual,
+      insMunicipal: data.insMunicipal,
+      cep: data.cep,
+      rua: data.rua,
+      numero: data.numero,
+      complemento: data.complemento,
+      bairro: data.bairro,
+      cidade: data.cidade,
+      telefone: data.telefone,
+      celular: data.celular,
+      email: data.email,
+      site: data.site,
     };
 
     const newData = [...peopleDatabase, new_person];
@@ -55,7 +85,22 @@ export const PeopleProvider = ({ children }: iPeopleProviderProps) => {
   const edit_people = (data: iRegisterPeople) => {
     const editted_person = {
       id: idToEdit,
-      name: data.name,
+      cpfCnpj: data.cpfCnpj,
+      nomeRazao: data.nomeRazao,
+      apelidoFantasia: data.apelidoFantasia,
+      tipo: data.tipo,
+      insEstatual: data.insEstatual,
+      insMunicipal: data.insMunicipal,
+      cep: data.cep,
+      rua: data.rua,
+      numero: data.numero,
+      complemento: data.complemento,
+      bairro: data.bairro,
+      cidade: data.cidade,
+      telefone: data.telefone,
+      celular: data.celular,
+      email: data.email,
+      site: data.site,
     };
 
     const newDataBase = peopleDatabase.map((person) => {
