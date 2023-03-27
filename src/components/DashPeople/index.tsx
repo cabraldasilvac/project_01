@@ -4,9 +4,9 @@ import { PeopleContext } from "../../contexts/people";
 import { useContext } from "react";
 
 const DashPeople = () => {
-  const { peopleDatabase } = useContext(PeopleContext);
+  const { peopleDatabase, set_id_edit } = useContext(PeopleContext);
 
-  const { set_modal_add } = useContext(ModalContext);
+  const { set_modal_add, set_modal_edit } = useContext(ModalContext);
 
   return (
     <UlRegs>
@@ -30,7 +30,14 @@ const DashPeople = () => {
         return (
           <li key={person.id}>
             <p>{person.name}</p>
-            <button>More Details</button>
+            <button
+              onClick={() => {
+                set_id_edit(person.id);
+                set_modal_edit();
+              }}
+            >
+              More Details
+            </button>
           </li>
         );
       })}
