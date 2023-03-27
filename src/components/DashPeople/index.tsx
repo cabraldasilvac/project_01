@@ -29,7 +29,7 @@ const DashPeople = () => {
       {peopleDatabase.map((person) => {
         return (
           <li key={person.id}>
-            <p>{person.name}</p>
+            <p>{person.nomeRazao}</p>
             <button
               onClick={() => {
                 set_id_edit(person.id);

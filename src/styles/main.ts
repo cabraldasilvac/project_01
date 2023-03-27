@@ -60,11 +60,31 @@ export const UlRegs = styled.ul`
   }
 `;
 
-export const FormEdit = styled.form`
+export const FormAdd = styled.form`
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 5px;
+  justify-content: center;
+  align-items: center;
+
+  .div_label_and_input {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;
+    width: 80%;
+
+    label {
+      width: 50%;
+      text-align: right;
+    }
+  }
+
+  input,
+  select {
+    width: 50%;
+  }
 
   .div_close_button {
     width: 100%;
@@ -87,11 +107,31 @@ export const FormEdit = styled.form`
   }
 `;
 
-export const FormAdd = styled.form`
+export const FormEdit = styled.form`
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 5px;
+  justify-content: center;
+  align-items: center;
+
+  .div_label_and_input {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-between;
+    width: 80%;
+
+    label {
+      width: 50%;
+      text-align: right;
+    }
+  }
+
+  input,
+  select {
+    width: 50%;
+  }
 
   .div_close_button {
     width: 100%;
