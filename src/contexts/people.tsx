@@ -6,10 +6,12 @@ interface iRegisterPeople {
 }
 
 interface iPeopleProviderFunctions {
+  set_id_edit: (id: number) => void;
   register_people: (data: iRegisterPeople) => void;
   edit_people: (data: iRegisterPeople) => void;
-  delete_people: (data: iRegisterPeople) => void;
+  delete_people: (id: number) => void;
   peopleDatabase: iRegisterPeople[];
+  idToEdit: number;
 }
 
 interface iPeopleProviderProps {
@@ -25,6 +27,8 @@ export const PeopleProvider = ({ children }: iPeopleProviderProps) => {
 
   const [peopleDatabase, setPeopleDatabase] = useState([] as iRegisterPeople[]);
 
+  const [idToEdit, setIdToEdit] = useState(0);
+
   useEffect(() => {
     const checkPeopleData = localStorage.getItem("@project01_people_database");
 
@@ -33,6 +37,9 @@ export const PeopleProvider = ({ children }: iPeopleProviderProps) => {
     }
   }, []);
 
+  const set_id_edit = (id: number) => {
+    setIdToEdit(id);
+  };
   const register_people = (data: iRegisterPeople) => {
     const new_person = {
       id: createKey(),
@@ -46,20 +53,47 @@ export const PeopleProvider = ({ children }: iPeopleProviderProps) => {
   };
 
   const edit_people = (data: iRegisterPeople) => {
-    console.log(data);
+    const editted_person = {
+      id: idToEdit,
+      name: data.name,
+    };
+
+    const newDataBase = peopleDatabase.map((person) => {
+      if (person.id === idToEdit) {
+        return editted_person;
+      } else {
+        return person;
+      }
+    });
+    setPeopleDatabase(newDataBase);
+    localStorage.setItem(
+      "@project01_people_database",
+      JSON.stringify(newDataBase)
+    );
+    setIdToEdit(0);
   };
 
-  const delete_people = (data: iRegisterPeople) => {
-    console.log(data);
+  const delete_people = (id: number) => {
+    const newDataBase = peopleDatabase.filter((person: { id: number }) => {
+      return person.id !== id;
+    });
+    setPeopleDatabase(newDataBase);
+    localStorage.setItem(
+      "@project01_people_database",
+      JSON.stringify(newDataBase)
+    );
+    setIdToEdit(0);
   };
 
   return (
     <PeopleContext.Provider
       value={{
+        set_id_edit,
         register_people,
         edit_people,
         delete_people,
         peopleDatabase,
+        idToEdit,
       }}
     >
       {children}
